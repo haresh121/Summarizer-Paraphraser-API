@@ -1,0 +1,9 @@
+version: "0.0.1"
+services:
+  image:
+    container_name: summarizer_paraphraser
+    build: .
+    restart: always
+    ports:
+      - "8002:8001"
+    command: gunicorn -w 1 --threads 2 -b 0.0.0.0:8001 app:app
